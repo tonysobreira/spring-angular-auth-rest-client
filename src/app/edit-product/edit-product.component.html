@@ -1,0 +1,35 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <mat-card class="example-card">
+      <form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" formControlName="prodName"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!productForm.get('prodName').valid && productForm.get('prodName').touched">Please enter Title</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Description" formControlName="prodDesc"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!productForm.get('prodDesc').valid && productForm.get('prodDesc').touched">Please enter Author</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Price" formControlName="prodPrice"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!productForm.get('prodPrice').valid && productForm.get('prodPrice').touched">Please enter Description</span>
+          </mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button class="btnSave" type="submit" [disabled]="!productForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+          <a mat-flat-button color="primary" (click)="back()"><mat-icon>undo</mat-icon></a>
+        </div>
+      </form>
+    </mat-card>
+</div>

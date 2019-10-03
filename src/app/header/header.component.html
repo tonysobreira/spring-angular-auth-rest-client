@@ -1,0 +1,15 @@
+<mat-toolbar class="navbar" color="primary">
+    <span>Client Angular 8</span>
+    
+    <ul>
+        <li><a mat-flat-button color="primary" href="" [routerLink]="['/products']">Products</a></li>
+        <li><a mat-flat-button color="primary" href="" [routerLink]="['/addproduct']">Add Products</a></li>
+    </ul>
+    <span class="login"></span>
+    <ul class="">
+        <li >
+            <a mat-flat-button color="primary" *ngIf="isloginn()" (click)="logout()">{{userEmail}} Logout</a>
+            <a mat-flat-button color="primary" *ngIf="!isloginn()" [routerLink]="['/login']">Login</a>
+        </li>
+    </ul>
+</mat-toolbar>
